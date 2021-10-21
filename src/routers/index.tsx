@@ -5,6 +5,7 @@ import Route from './Route';
 
 // import Home from '../pages/Home';
 
+// import SignIn from '../pages/Signin';
 import SignIn from '../pages/Signin';
 import SignUp from '../pages/SignUp';
 
