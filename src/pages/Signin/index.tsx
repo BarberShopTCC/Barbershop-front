@@ -49,10 +49,10 @@ const SignIn: React.FC = () => {
           password: data.password,
         });
 
-        if (data.email === 'eduu@hotmail.com') {
-          history.push('/dashboard-user');
-        } else {
+        if (data.email.match(/@barbershop.com/)) {
           history.push('/dashboard');
+        } else {
+          history.push('/dashboard-user');
         }
       } catch (err) {
         if (err instanceof Yup.ValidationError) {

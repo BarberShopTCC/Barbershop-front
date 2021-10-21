@@ -1,4 +1,10 @@
-import React, { ChangeEvent, useCallback, useRef } from 'react';
+import React, {
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { FiMail, FiUser, FiLock, FiCamera, FiArrowLeft } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -31,6 +37,16 @@ const Profile: React.FC = () => {
   const history = useHistory();
 
   const { user, updateUser } = useAuth();
+
+  const [rota, setRota] = useState('');
+
+  useEffect(() => {
+    if (user.status === '2') {
+      setRota('/dashboard');
+    } else {
+      setRota('/dashboard-user');
+    }
+  }, [user.status, rota]);
 
   const handleSubmit = useCallback(
     async (data: ProfileFormData) => {
@@ -80,7 +96,7 @@ const Profile: React.FC = () => {
 
         updateUser(response.data);
 
-        history.push('/dashboard');
+        history.push(rota);
 
         addToast({
           type: 'success',
@@ -105,7 +121,7 @@ const Profile: React.FC = () => {
         });
       }
     },
-    [addToast, history, updateUser],
+    [addToast, history, updateUser, rota],
   );
 
   const handleAvatarChange = useCallback(
@@ -132,7 +148,7 @@ const Profile: React.FC = () => {
     <Container>
       <header>
         <div>
-          <Link to="/dashboard">
+          <Link to={rota}>
             <FiArrowLeft />
           </Link>
         </div>

@@ -13,7 +13,7 @@ import { FormHandles } from '@unform/core';
 import { format } from 'date-fns';
 
 import { FiArrowLeft } from 'react-icons/fi';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
 
@@ -63,6 +63,7 @@ interface MonthAvailabilityItem {
 
 const CreateAppointment: React.FC = () => {
   const { addToast } = useToast();
+  const history = useHistory();
   const formRef = useRef<FormHandles>(null);
 
   const location = useLocation<RouteParams>();
@@ -125,7 +126,6 @@ const CreateAppointment: React.FC = () => {
     return dates;
   }, [currentMonth, monthAvailability]);
 
-  // *************************
   useEffect(() => {
     api
       .get(`providers/${selectedProvider}/day-availability`, {
@@ -180,6 +180,8 @@ const CreateAppointment: React.FC = () => {
         date,
       });
 
+      history.push('/dashboard-user');
+
       addToast({
         type: 'success',
         title: 'Agendamento Criado!',
@@ -201,7 +203,7 @@ const CreateAppointment: React.FC = () => {
           'Ocorreu um erro ao tentar criar o agendamento, tente novamente.',
       });
     }
-  }, [selectedDate, selectedProvider, selectedHour, addToast]);
+  }, [selectedDate, selectedProvider, selectedHour, addToast, history]);
 
   return (
     <>
