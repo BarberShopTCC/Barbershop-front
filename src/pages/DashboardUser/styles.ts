@@ -28,6 +28,10 @@ export const HeaderContent = styled.div`
     width: 20px;
     height: 20px;
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 2rem;
+  }
 `;
 
 export const Profile = styled.div`
@@ -81,6 +85,11 @@ export const ProvidersListTitle = styled.h1`
 
 export const ProvidersList = styled.div`
   padding: 32px 24px 16px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const ProviderContainer = styled.div`

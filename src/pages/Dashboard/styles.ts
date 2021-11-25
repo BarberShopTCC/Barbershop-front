@@ -4,7 +4,7 @@ import { shade } from 'polished';
 export const Container = styled.div``;
 
 export const Header = styled.header`
-  padding: 32px 0;
+  padding: 1rem 0;
   background: #28262e;
 `;
 
@@ -29,6 +29,10 @@ export const HeaderContent = styled.div`
     color: #999591;
     width: 20px;
     height: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 2rem;
   }
 `;
 
@@ -68,6 +72,11 @@ export const Content = styled.main`
   max-width: 1120px;
   margin: 64px auto;
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Schedule = styled.div`
@@ -97,6 +106,13 @@ export const Schedule = styled.div`
       background: #ff79c6;
       margin: 0 8px;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 4rem;
+    margin-left: 4rem;
+
+    text-align: center;
   }
 `;
 

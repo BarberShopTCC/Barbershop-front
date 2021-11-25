@@ -29,6 +29,11 @@ import {
   ProviderName,
   ContainerProvider,
   ProviderAvatar,
+  Service,
+  Selected,
+  SelectBox,
+  OptionsContainer,
+  Option,
   Calendar,
   Title,
   Schedule,
@@ -206,6 +211,29 @@ const CreateAppointment: React.FC = () => {
     }
   }, [selectedDate, selectedProvider, selectedHour, addToast, history]);
 
+  const [active, setActive] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(
+    'Selecione um produto',
+  );
+  const handleActive = () => setActive(!active);
+  const handleSelectedProduct = useCallback((a: string) => {
+    setSelectedProduct(a);
+    setActive(active);
+  }, []);
+
+  const produtos = [
+    'Nenhum',
+    'Escova',
+    'Shampoo',
+    'Condicionador',
+    'Gel',
+    'Nenhum',
+    'Escova',
+    'Shampoo',
+    'Condicionador',
+    'Gel',
+  ];
+
   return (
     <>
       <Container>
@@ -214,7 +242,7 @@ const CreateAppointment: React.FC = () => {
             <FiArrowLeft />
           </Link>
 
-          <HeaderTitle>Cabeleireiros</HeaderTitle>
+          <HeaderTitle>Cabeleireiro</HeaderTitle>
 
           <UserAvatar src={user.avatar_url} alt={user.name} />
         </Header>
@@ -229,6 +257,25 @@ const CreateAppointment: React.FC = () => {
                   <ProviderName>{provider.name}</ProviderName>
                 </ContainerProvider>
               ))}
+
+            <Service>
+              <h2>Escolha seus produtos</h2>
+
+              <SelectBox>
+                <OptionsContainer active={active}>
+                  {produtos.map((produto) => (
+                    <Option onClick={() => handleSelectedProduct(produto)}>
+                      <input type="radio" name="radio" id={produto} />
+                      <label htmlFor={produto}>{produto}</label>
+                    </Option>
+                  ))}
+                </OptionsContainer>
+
+                <Selected onClick={handleActive} active={active}>
+                  {selectedProduct}
+                </Selected>
+              </SelectBox>
+            </Service>
           </Provider>
 
           <Calendar>

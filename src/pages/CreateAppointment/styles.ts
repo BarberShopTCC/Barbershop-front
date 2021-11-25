@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
+import { IoIosArrowDown } from 'react-icons/io';
+import arrow from './../../assets/arrow-down.svg';
+
+interface PropTypeOC {
+  active?: boolean;
+}
 
 interface HourProps {
   available: boolean;
@@ -47,6 +53,12 @@ export const UserAvatar = styled.img`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Provider = styled.div`
@@ -56,7 +68,7 @@ export const Provider = styled.div`
 export const ProviderName = styled.h1`
   margin-top: 16px;
   font-size: 24px;
-  color: #ff9000;
+  color: #ff79c6;
 `;
 
 export const ContainerProvider = styled.div`
@@ -70,6 +82,97 @@ export const ProviderAvatar = styled.img`
   width: 56px;
   height: 56px;
   border-radius: 28px;
+`;
+
+export const Service = styled.div`
+  margin-left: 2.5rem;
+  margin-top: 1rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+`;
+
+export const Selected = styled.div`
+  padding: 12px 24px;
+  cursor: pointer;
+
+  background: #28262e;
+  color: #f5f6fa;
+
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  order: 0;
+
+  ::after {
+    content: '';
+    background-image: url(${arrow});
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: ${(props: PropTypeOC) =>
+      props.active ? 'rotateX(180deg)' : 'none'};
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: ${(props: PropTypeOC) => (props.active ? '-6px' : '5px')};
+
+    transition: all 0.4s;
+  }
+`;
+
+export const SelectBox = styled.div`
+  display: flex;
+  width: 400px;
+
+  flex-direction: column;
+
+  label {
+    cursor: pointer;
+  }
+
+  input {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-right: 3rem;
+  }
+`;
+
+export const OptionsContainer = styled.div`
+  order: 1;
+  background: #28262e;
+  color: #f5f6fa;
+
+  max-height: ${(props: PropTypeOC) => (props.active ? '240px' : '0')};
+  width: 100%;
+  opacity: ${(props: PropTypeOC) => (props.active ? '1' : '0')};
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+  overflow-y: ${(props: PropTypeOC) => (props.active ? 'scroll' : 'none')};
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: #0d141f;
+    border-radius: 0 8px 8px 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #525861;
+    border-radius: 0 8px 8px 0;
+  }
+`;
+
+export const Option = styled.div`
+  padding: 12px 24px;
+  cursor: pointer;
+
+  :hover {
+    background: #414b57;
+  }
 `;
 
 export const Calendar = styled.div`
@@ -152,7 +255,7 @@ export const SectionContent = styled.div`
 `;
 export const Hour = styled.button<HourProps>`
   padding: 12px;
-  background: ${(props) => (props.selected ? '#ff9000' : '#3e3b47')};
+  background: ${(props) => (props.selected ? '#ff79c6' : '#3e3b47')};
   border-radius: 10px;
   margin-right: 8px;
   border: 0;

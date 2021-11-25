@@ -76,7 +76,7 @@ const DashboardUser: React.FC = () => {
         </HeaderContent>
       </Header>
       <Container>
-        <ProvidersListTitle>Cabeleireiro</ProvidersListTitle>
+        <ProvidersListTitle>Funcionarios</ProvidersListTitle>
         <Teste>
           {providers.map((provider) => (
             <ProvidersList key={provider.id}>
