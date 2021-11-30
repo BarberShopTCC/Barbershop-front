@@ -216,10 +216,13 @@ const CreateAppointment: React.FC = () => {
     'Selecione um produto',
   );
   const handleActive = () => setActive(!active);
-  const handleSelectedProduct = useCallback((a: string) => {
-    setSelectedProduct(a);
-    setActive(active);
-  }, []);
+  const handleSelectedProduct = useCallback(
+    (a: string) => {
+      setSelectedProduct(a);
+      setActive(active);
+    },
+    [active],
+  );
 
   const produtos = [
     'Nenhum',

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
-import { IoIosArrowDown } from 'react-icons/io';
 import arrow from './../../assets/arrow-down.svg';
 
 interface PropTypeOC {
