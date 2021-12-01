@@ -1,6 +1,6 @@
 import Photo01 from '../../assets/photo01.jpg';
 import Photo02 from '../../assets/photo02.jpg';
-import Svg03 from '../../assets/svg-03.svg';
+// import Svg03 from '../../assets/svg-03.svg';
 import Barber from '../../assets/barber.svg';
 
 export const homeObjOne = {

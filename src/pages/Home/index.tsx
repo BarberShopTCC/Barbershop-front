@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { Button } from '../../styles/global';
-// import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/logo 2.svg';
 
 // import HomePage from '../../components/HomePage';
 import Footer from '../../components/Footer';
-import ScrollToTop from '../../components/Scrolling';
 
-import {
-  homeObjOne,
-  homeObjTwo,
-  homeObjThree,
-  homeObjFour,
-} from '../../components/HomePage/data';
+import { homeObjThree, homeObjFour } from '../../components/HomePage/data';
 import InfoSection from '../../components/InfoSection';
 import Pricing from '../../components/Pricing';
 
@@ -23,7 +16,6 @@ import {
   Nav,
   NavContainer,
   NavLogo,
-  NavIcon,
   MobileIcon,
   NavMenu,
   NavItem,
