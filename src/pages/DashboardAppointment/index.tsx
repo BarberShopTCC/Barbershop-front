@@ -17,6 +17,9 @@ import {
   Header,
   HeaderContent,
   Profile,
+  Menu,
+  Appointments,
+  HomeMenu,
   Content,
   Schedule,
   NextAppointment,
@@ -40,7 +43,7 @@ interface Appointment {
   };
 }
 
-const Dashboard: React.FC = () => {
+const DashboardAppointment: React.FC = () => {
   const { user, signOut } = useAuth();
 
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -146,7 +149,6 @@ const Dashboard: React.FC = () => {
           <Link to="/">
             <img src={logoImg} alt="Barbershop" />
           </Link>
-
           <Profile>
             <img src={user.avatar_url} alt={user.name} />
 
@@ -157,6 +159,20 @@ const Dashboard: React.FC = () => {
               </Link>
             </div>
           </Profile>
+
+          <Menu>
+            <HomeMenu>
+              <Link to="/dashboard-user">
+                <strong>Home</strong>
+              </Link>
+            </HomeMenu>
+
+            <Appointments>
+              <Link to="/dashboard-appointments">
+                <strong>Agendamentos</strong>
+              </Link>
+            </Appointments>
+          </Menu>
 
           <button type="button" onClick={signOut}>
             <FiPower />
@@ -275,4 +291,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardAppointment;

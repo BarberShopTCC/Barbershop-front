@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import { FaMagento } from 'react-icons/fa';
+import { FaBimobject } from 'react-icons/fa';
 import { Container } from '../../styles/global';
 
 export const Nav = styled.nav`
-  background: #101522;
-  height: 80px;
+  background: #28262e;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,8 @@ export const NavContainer = styled(Container)`
   ${Container}
 `;
 
-export const NavLogo = styled(Link)`
+// export const NavLogo = styled(Link)`
+export const NavLogo = styled.a`
   color: #fff;
   justify-content: flex-start;
   cursor: pointer;
@@ -32,9 +33,13 @@ export const NavLogo = styled(Link)`
   font-size: 2rem;
   display: flex;
   align-items: center;
+
+  > img {
+    height: 80px;
+  }
 `;
 
-export const NavIcon = styled(FaMagento)`
+export const NavIcon = styled(FaBimobject)`
   margin-right: 0.5rem;
 `;
 
@@ -81,7 +86,7 @@ export const NavItem = styled.li`
   border-bottom: 2px solid transparent;
 
   &:hover {
-    border-bottom: 2px solid #4b59f7;
+    border-bottom: 2px solid #ff79c6;
   }
 
   @media screen and (max-width: 960px) {
@@ -93,7 +98,8 @@ export const NavItem = styled.li`
   }
 `;
 
-export const NavLinks = styled(Link)`
+// export const NavLinks = styled(Link)`
+export const NavLinks = styled.a`
   color: #fff;
   display: flex;
   align-items: center;
@@ -108,7 +114,7 @@ export const NavLinks = styled(Link)`
     display: table;
 
     &:hover {
-      color: #4b59f7;
+      color: #ff79c6;
       transition: all 0.3s ease;
     }
   }
@@ -124,7 +130,8 @@ export const NavItemBtn = styled.li`
   }
 `;
 
-export const NavBtnLink = styled(Link)`
+// export const NavBtnLink = styled(Link)`
+export const NavBtnLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,3 +142,5 @@ export const NavBtnLink = styled(Link)`
   border: none;
   outline: none;
 `;
+
+export const HomePage = styled.div``;

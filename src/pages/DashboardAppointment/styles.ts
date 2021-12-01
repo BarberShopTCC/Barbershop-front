@@ -6,6 +6,10 @@ export const Container = styled.div``;
 export const Header = styled.header`
   padding: 1rem 0;
   background: #28262e;
+
+  img {
+    height: 80px;
+  }
 `;
 
 export const HeaderContent = styled.div`
@@ -14,7 +18,7 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
 
-  img {
+  > img {
     height: 80px;
   }
 
@@ -64,6 +68,35 @@ export const Profile = styled.div`
       &:hover {
         color: ${shade(0.2, '#ff79c6')};
       }
+    }
+  }
+`;
+
+export const Menu = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 17rem;
+`;
+
+export const Appointments = styled.div`
+  margin-left: 1rem;
+  a {
+    text-decoration: none;
+    color: #ff79c6;
+
+    &:hover {
+      color: ${shade(0.2, '#ff79c6')};
+    }
+  }
+`;
+
+export const HomeMenu = styled.div`
+  a {
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: ${shade(0.2, '#ff79c6')};
     }
   }
 `;

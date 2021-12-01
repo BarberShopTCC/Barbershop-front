@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Header = styled.header`
-  padding: 32px 0;
+  padding: 1rem 0;
   background: #28262e;
 `;
 
@@ -12,7 +12,7 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
 
-  > img {
+  img {
     height: 80px;
   }
 
@@ -66,6 +66,35 @@ export const Profile = styled.div`
   }
 `;
 
+export const Menu = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 17rem;
+`;
+
+export const Appointments = styled.div`
+  margin-left: 1rem;
+  a {
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: ${shade(0.2, '#ff79c6')};
+    }
+  }
+`;
+
+export const HomeMenu = styled.div`
+  a {
+    text-decoration: none;
+    color: #ff79c6;
+
+    &:hover {
+      color: ${shade(0.2, '#ff79c6')};
+    }
+  }
+`;
+
 export const Container = styled.div`
   max-width: 1120px;
   margin: 18px auto;
@@ -74,12 +103,18 @@ export const Container = styled.div`
 export const Teste = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    /* flex-direction: column;
+    align-items: center; */
+  }
 `;
 
 export const ProvidersListTitle = styled.h1`
   padding: 32px 24px 16px;
-  font-size: 24px;
-  margin-bottom: 24px;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
   color: #f4ede8;
 `;
 
@@ -104,7 +139,7 @@ export const ProviderContainer = styled.div`
   cursor: pointer;
 
   svg {
-    color: #ff9000;
+    color: #ff79c6;
     width: 14px;
     height: 14px;
   }
@@ -123,6 +158,10 @@ export const ProviderAvatar = styled.img`
 export const ProviderInfo = styled.div`
   flex: 1;
   margin-left: 20px;
+
+  h3 {
+    color: #ff79c6;
+  }
 `;
 
 export const ProviderName = styled.h1`

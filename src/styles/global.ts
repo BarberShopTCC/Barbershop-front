@@ -6,6 +6,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -51,10 +52,10 @@ interface PropType {
 
 export const Button = styled.button`
   border-radius: 4px;
-  background: ${(props: PropType) => (props.primary ? '#4b59f7' : '#0467fb')};
+  background: ${(props: PropType) => (props.primary ? '#ff79c6' : '#FF46B0')};
   white-space: nowrap;
   padding: ${(props: PropType) => (props.big ? '12px 64px' : '10px 20px')};
-  color: #fff;
+  color: #282a36;
   font-size: ${(props: PropType) =>
     props.fontBig ? '12px 64px' : '10px 20px'};
   outline: none;
@@ -64,7 +65,7 @@ export const Button = styled.button`
   &:hover {
     transition: all 0.3s ease-out;
     background: #fff;
-    background: ${(props: PropType) => (props.primary ? '#0467fb' : '#4b59f7')};
+    background: ${(props: PropType) => (props.primary ? '#FF46B0' : '#ff79c6')};
 
     @media screen and (max-width: 960px) {
       width: 100%;

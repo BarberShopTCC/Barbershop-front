@@ -21,6 +21,9 @@ import {
   ProviderMeta,
   ProviderMetaText,
   Teste,
+  Menu,
+  Appointments,
+  HomeMenu,
 } from './styles';
 
 interface Provider {
@@ -57,7 +60,9 @@ const DashboardUser: React.FC = () => {
     <>
       <Header>
         <HeaderContent>
-          <img src={logoImg} alt="Barbershop" />
+          <Link to="/">
+            <img src={logoImg} alt="Barbershop" />
+          </Link>
 
           <Profile>
             <img src={user.avatar_url} alt={user.name} />
@@ -70,6 +75,20 @@ const DashboardUser: React.FC = () => {
             </div>
           </Profile>
 
+          <Menu>
+            <HomeMenu>
+              <Link to="/dashboard-user">
+                <strong>Home</strong>
+              </Link>
+            </HomeMenu>
+
+            <Appointments>
+              <Link to="/dashboard-appointments">
+                <strong>Agendamentos</strong>
+              </Link>
+            </Appointments>
+          </Menu>
+
           <button type="button" onClick={signOut}>
             <FiPower />
           </button>
@@ -78,29 +97,36 @@ const DashboardUser: React.FC = () => {
       <Container>
         <ProvidersListTitle>Funcionarios</ProvidersListTitle>
         <Teste>
-          {providers.map((provider) => (
-            <ProvidersList key={provider.id}>
-              <ProviderContainer
-                onClick={() => navigateToCreateAppointment(provider.id)}
-              >
-                <ProviderAvatar src={provider.avatar_url} alt={provider.name} />
+          {providers
+            .filter((email) => email.email.match(/@barbershop.com/))
+            .map((provider) => (
+              <ProvidersList key={provider.id}>
+                <ProviderContainer
+                  onClick={() => navigateToCreateAppointment(provider.id)}
+                >
+                  <ProviderAvatar
+                    src={provider.avatar_url}
+                    alt={provider.name}
+                  />
 
-                <ProviderInfo>
-                  <ProviderName>{provider.name}</ProviderName>
+                  <ProviderInfo>
+                    <ProviderName>{provider.name}</ProviderName>
 
-                  <ProviderMeta>
-                    <FiCalendar />
-                    <ProviderMetaText>Segunda à Sexta</ProviderMetaText>
-                  </ProviderMeta>
+                    <h3>Cabeleireiro</h3>
 
-                  <ProviderMeta>
-                    <FiClock />
-                    <ProviderMetaText>8h às 18h</ProviderMetaText>
-                  </ProviderMeta>
-                </ProviderInfo>
-              </ProviderContainer>
-            </ProvidersList>
-          ))}
+                    <ProviderMeta>
+                      <FiCalendar />
+                      <ProviderMetaText>Segunda à Sexta</ProviderMetaText>
+                    </ProviderMeta>
+
+                    <ProviderMeta>
+                      <FiClock />
+                      <ProviderMetaText>8h às 18h</ProviderMetaText>
+                    </ProviderMeta>
+                  </ProviderInfo>
+                </ProviderContainer>
+              </ProvidersList>
+            ))}
         </Teste>
       </Container>
     </>

@@ -212,29 +212,43 @@ const CreateAppointment: React.FC = () => {
   }, [selectedDate, selectedProvider, selectedHour, addToast, history]);
 
   const [active, setActive] = useState(false);
+  const [activeService, setActiveService] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(
     'Selecione um produto',
   );
+  const [selectedService, setSelectedService] = useState(
+    'Selecione um serviço',
+  );
   const handleActive = () => setActive(!active);
+  const handleActiveService = () => setActiveService(!activeService);
   const handleSelectedProduct = useCallback(
     (a: string) => {
       setSelectedProduct(a);
-      setActive(active);
+      setActive(!active);
     },
     [active],
   );
 
-  const produtos = [
+  const handleSelectedService = useCallback(
+    (a: string) => {
+      setSelectedService(a);
+      setActiveService(!activeService);
+    },
+    [activeService],
+  );
+
+  const produtos = ['Nenhum', 'Hidratação', 'Shampoo', 'Condicionador', 'Gel'];
+  const servicos = [
     'Nenhum',
-    'Escova',
-    'Shampoo',
-    'Condicionador',
-    'Gel',
-    'Nenhum',
-    'Escova',
-    'Shampoo',
-    'Condicionador',
-    'Gel',
+    'Corte',
+    'Corte Infantil',
+    'Barba',
+    'Hidratação',
+    'Escova Inteligente',
+    'Relaxamento',
+    'Botox',
+    'Coloração',
+    'Mechas',
   ];
 
   return (
@@ -256,7 +270,10 @@ const CreateAppointment: React.FC = () => {
               .filter((provider) => provider.id === location.state.providerId)
               .map((provider) => (
                 <ContainerProvider key={provider.id}>
-                  <ProviderAvatar src={provider.avatar_url} alt={user.name} />
+                  <ProviderAvatar
+                    src={provider.avatar_url}
+                    alt={provider.name}
+                  />
                   <ProviderName>{provider.name}</ProviderName>
                 </ContainerProvider>
               ))}
@@ -276,6 +293,25 @@ const CreateAppointment: React.FC = () => {
 
                 <Selected onClick={handleActive} active={active}>
                   {selectedProduct}
+                </Selected>
+              </SelectBox>
+            </Service>
+
+            <Service>
+              <h2>Escolha seus Serviços</h2>
+
+              <SelectBox>
+                <OptionsContainer active={activeService}>
+                  {servicos.map((servicos) => (
+                    <Option onClick={() => handleSelectedService(servicos)}>
+                      <input type="radio" name="radio" id={servicos} />
+                      <label htmlFor={servicos}>{servicos}</label>
+                    </Option>
+                  ))}
+                </OptionsContainer>
+
+                <Selected onClick={handleActiveService} active={activeService}>
+                  {selectedService}
                 </Selected>
               </SelectBox>
             </Service>

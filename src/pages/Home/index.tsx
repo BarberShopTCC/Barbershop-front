@@ -4,7 +4,20 @@ import { IconContext } from 'react-icons/lib';
 import { Button } from '../../styles/global';
 // import { Link } from 'react-router-dom';
 
-// import logoImg from '../../assets/logo 2.svg';
+import logoImg from '../../assets/logo 2.svg';
+
+// import HomePage from '../../components/HomePage';
+import Footer from '../../components/Footer';
+import ScrollToTop from '../../components/Scrolling';
+
+import {
+  homeObjOne,
+  homeObjTwo,
+  homeObjThree,
+  homeObjFour,
+} from '../../components/HomePage/data';
+import InfoSection from '../../components/InfoSection';
+import Pricing from '../../components/Pricing';
 
 import {
   Nav,
@@ -17,6 +30,7 @@ import {
   NavLinks,
   NavItemBtn,
   NavBtnLink,
+  HomePage,
 } from './styles';
 
 const Home: React.FC = () => {
@@ -46,32 +60,34 @@ const Home: React.FC = () => {
       <IconContext.Provider value={{ color: '#fff' }}>
         <Nav>
           <NavContainer>
-            <NavLogo to="/">
-              <NavIcon />
-              ULTRA
+            <NavLogo href="#">
+              <img src={logoImg} alt="Barbershop Logo" />
+              {/* <NavIcon /> */}
+              {/* Barbershop */}
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <NavLinks to="/">Home</NavLinks>
+                <NavLinks href="#">Home</NavLinks>
+              </NavItem>
+
+              <NavItem>
+                <NavLinks href="#service">Serviços</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/services">Serviços</NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/products">Produtos</NavLinks>
+                <NavLinks href="#sobre">Sobre</NavLinks>
               </NavItem>
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to="/signin">
-                    <Button primary>SIGN UP</Button>
+                  <NavBtnLink href="/signin">
+                    <Button primary>ENTRAR</Button>
                   </NavBtnLink>
                 ) : (
-                  <NavBtnLink to="/signup">
+                  <NavBtnLink href="/signup">
                     <Button fontBig primary>
-                      SIGN UP
+                      ENTRAR
                     </Button>
                   </NavBtnLink>
                 )}
@@ -79,6 +95,18 @@ const Home: React.FC = () => {
             </NavMenu>
           </NavContainer>
         </Nav>
+        <HomePage>
+          <div id="home">
+            <InfoSection {...homeObjThree} />
+          </div>
+          <div id="service">
+            <Pricing />
+          </div>
+          <div id="sobre">
+            <InfoSection {...homeObjFour} />
+          </div>
+        </HomePage>
+        <Footer />
       </IconContext.Provider>
     </>
   );
