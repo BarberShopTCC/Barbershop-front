@@ -42,7 +42,7 @@ const Footer = () => {
           </FooterSubText> */}
           <Form>
             <FormInput name="email" type="email" placeholder="Seu email" />
-            <Button fontBig>Subscribe</Button>
+            <Button fontBig>Inscrever-se</Button>
           </Form>
         </FooterSubscription>
         <FooterLinksContainer>

@@ -66,9 +66,9 @@ export const Button = styled.button`
     transition: all 0.3s ease-out;
     background: #fff;
     background: ${(props: PropType) => (props.primary ? '#FF46B0' : '#ff79c6')};
+  }
 
-    @media screen and (max-width: 960px) {
-      width: 100%;
-    }
+  @media screen and (max-width: 960px) {
+    width: 100%;
   }
 `;
