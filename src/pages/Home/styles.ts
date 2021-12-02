@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { FaBimobject } from 'react-icons/fa';
 import { Container } from '../../styles/global';
@@ -130,8 +130,7 @@ export const NavItemBtn = styled.li`
   }
 `;
 
-// export const NavBtnLink = styled(Link)`
-export const NavBtnLink = styled.a`
+export const NavBtnLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;

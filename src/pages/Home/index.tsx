@@ -73,11 +73,11 @@ const Home: React.FC = () => {
               </NavItem>
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink href="/signin">
+                  <NavBtnLink to="/signin">
                     <Button primary>ENTRAR</Button>
                   </NavBtnLink>
                 ) : (
-                  <NavBtnLink href="/signup">
+                  <NavBtnLink to="/signup">
                     <Button fontBig primary>
                       ENTRAR
                     </Button>
