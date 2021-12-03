@@ -22,6 +22,7 @@ import {
   ProviderMetaText,
   Teste,
   Menu,
+  Burguer,
   Appointments,
   HomeMenu,
 } from './styles';
@@ -56,6 +57,8 @@ const DashboardUser: React.FC = () => {
     [history],
   );
 
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <Header>
@@ -75,8 +78,23 @@ const DashboardUser: React.FC = () => {
             </div>
           </Profile>
 
-          <Menu>
-            <HomeMenu>
+          <Burguer
+            open={open}
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+          </Burguer>
+
+          <Menu open={open}>
+            <HomeMenu
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
               <Link to="/dashboard-user">
                 <strong>Home</strong>
               </Link>

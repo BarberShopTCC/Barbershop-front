@@ -17,7 +17,7 @@ export const Content = styled.div`
 
   place-content: center;
 
-  width: 90%;
+  width: 100%;
   max-width: 600px;
 `;
 

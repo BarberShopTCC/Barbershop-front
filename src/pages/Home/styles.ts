@@ -37,6 +37,10 @@ export const NavLogo = styled.a`
   > img {
     height: 80px;
   }
+
+  @media screen and (max-width: 960px) {
+    margin-left: 5rem;
+  }
 `;
 
 export const NavIcon = styled(FaBimobject)`
@@ -73,11 +77,12 @@ export const NavMenu = styled.ul`
     width: 100%;
     height: 90vh;
     position: absolute;
-    top: 80px;
+    top: 100px;
     left: ${(props: PropsType) => (props.click ? 0 : '-100%')};
     opacity: 1;
     transition: all 0.5s ease;
-    background: #101522;
+    background: #28262e;
+    /* background: #282a36; */
   }
 `;
 

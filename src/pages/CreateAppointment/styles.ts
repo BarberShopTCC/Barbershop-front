@@ -17,6 +17,11 @@ interface HourTextProps {
 
 export const Container = styled.div`
   flex: 1;
+
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+    width: 100vw;
+  }
 `;
 
 export const Header = styled.div`
@@ -34,6 +39,10 @@ export const Header = styled.div`
     width: 35px;
     height: 35px;
   }
+
+  /* @media screen and (max-width: 768px) {
+    width: 100vw;
+  } */
 `;
 
 export const HeaderTitle = styled.h1`
@@ -54,14 +63,24 @@ export const Content = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
 
   @media screen and (max-width: 768px) {
-    display: flex;
+    grid-template-columns: 1fr;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: center; */
   }
 `;
 
 export const Provider = styled.div`
   margin: 24px 0;
+
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ProviderName = styled.h1`
@@ -89,6 +108,11 @@ export const Service = styled.div`
 
   h2 {
     margin-bottom: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 20rem;
+    margin: 0.5rem;
   }
 `;
 
@@ -137,6 +161,8 @@ export const SelectBox = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-right: 3rem;
+
+    width: 20rem;
   }
 `;
 
@@ -228,6 +254,11 @@ export const Calendar = styled.div`
     border-radius: 10px;
     color: #44475a !important;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 20rem;
+    margin-left: 1rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -238,6 +269,10 @@ export const Title = styled.h1`
 
 export const Schedule = styled.div`
   padding: 24px 0 16px;
+
+  @media screen and (max-width: 768px) {
+    width: 20rem;
+  }
 `;
 export const Section = styled.div`
   margin-bottom: 24px;
@@ -260,6 +295,10 @@ export const Hour = styled.button<HourProps>`
   border: 0;
 
   opacity: ${(props) => (props.available ? 1 : 0.3)};
+
+  @media screen and (max-width: 768px) {
+    padding: 8px;
+  }
 `;
 export const HourText = styled.span<HourTextProps>`
   color: ${(props) => (props.selected ? '#232129' : '#f4ede8')};

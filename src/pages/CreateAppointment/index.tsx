@@ -148,7 +148,7 @@ const CreateAppointment: React.FC = () => {
 
   const morningAvailability = useMemo(() => {
     return availability
-      .filter(({ hour }) => hour < 12)
+      .filter(({ hour }) => hour <= 12)
       .map(({ hour, available }) => {
         return {
           hour,
@@ -160,7 +160,7 @@ const CreateAppointment: React.FC = () => {
 
   const afternoonAvailability = useMemo(() => {
     return availability
-      .filter(({ hour }) => hour >= 12)
+      .filter(({ hour }) => hour > 12)
       .map(({ hour, available }) => {
         return {
           hour,

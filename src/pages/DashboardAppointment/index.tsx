@@ -18,6 +18,7 @@ import {
   HeaderContent,
   Profile,
   Menu,
+  Burguer,
   Appointments,
   HomeMenu,
   Content,
@@ -142,6 +143,8 @@ const DashboardAppointment: React.FC = () => {
     );
   }, [appointments]);
 
+  const [open, setOpen] = useState(false);
+
   return (
     <Container>
       <Header>
@@ -160,14 +163,29 @@ const DashboardAppointment: React.FC = () => {
             </div>
           </Profile>
 
-          <Menu>
+          <Burguer
+            open={open}
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+          </Burguer>
+
+          <Menu open={open}>
             <HomeMenu>
               <Link to="/dashboard-user">
                 <strong>Home</strong>
               </Link>
             </HomeMenu>
 
-            <Appointments>
+            <Appointments
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
               <Link to="/dashboard-appointments">
                 <strong>Agendamentos</strong>
               </Link>
