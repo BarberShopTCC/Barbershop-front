@@ -227,6 +227,11 @@ export const Appointment = styled.div`
       margin-left: 24px;
       color: #fff;
       font-size: 20px;
+
+      h4 {
+        font-size: 12px;
+        font-weight: normal;
+      }
     }
   }
 `;

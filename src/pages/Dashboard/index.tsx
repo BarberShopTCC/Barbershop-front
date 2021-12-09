@@ -211,7 +211,10 @@ const Dashboard: React.FC = () => {
                     alt={appointment.user.name}
                   />
 
-                  <strong>{appointment.user.name}</strong>
+                  <strong>
+                    {appointment.user.name}
+                    <h4>Produto: Shampoo</h4>
+                  </strong>
                 </div>
               </Appointment>
             ))}
